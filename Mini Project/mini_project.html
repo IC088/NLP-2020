@@ -13141,34 +13141,6 @@ $$p(u \mid w, v) = \frac{count(w, v, u)}{count(w, v)}$$</li>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="e25c15a9-3320-467c-adea-b5ed396a6e6f"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#e25c15a9-3320-467c-adea-b5ed396a6e6f');
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13431,30 +13403,9 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># List 10 most frequent unigrams, bigrams and trigrams as well as their counts.</span>
-<span class="k">def</span> <span class="nf">get_top10</span><span class="p">(</span><span class="n">ngram_dict</span><span class="p">,</span> <span class="n">n</span> <span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Function to get the top n n-gram slices in the dictionary</span>
-<span class="sd">    Args:</span>
-<span class="sd">    - ngram_dict : dict(dictionary containing the n-gram slices)</span>
-<span class="sd">    - n : int (number of elements you want to see)</span>
-<span class="sd">    Returns:</span>
-<span class="sd">    - sorted_dict : dict (dictionary containing the top n elements)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">sorted_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ngram_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="n">n</span><span class="p">]}</span>
-    <span class="k">return</span> <span class="n">sorted_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_top10</span><span class="p">(</span><span class="n">unigram_dict</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;unigram: </span><span class="si">{</span><span class="n">Counter</span><span class="p">(</span><span class="n">unigram_dict</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;bigram: </span><span class="si">{</span><span class="n">Counter</span><span class="p">(</span><span class="n">unigram_dict</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;triigram: </span><span class="si">{</span><span class="n">Counter</span><span class="p">(</span><span class="n">unigram_dict</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13467,24 +13418,15 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{(&#39;the&#39;,): 130519,
- (&#39;,&#39;,): 99763,
- (&#39;.&#39;,): 73388,
- (&#39;of&#39;,): 56743,
- (&#39;&lt;unk&gt;&#39;,): 53951,
- (&#39;and&#39;,): 49940,
- (&#39;in&#39;,): 44876,
- (&#39;to&#39;,): 39462,
- (&#39;a&#39;,): 36140,
- (&#39;&#34;&#39;,): 28285}</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>unigram: [((&#39;the&#39;,), 130519), ((&#39;,&#39;,), 99763), ((&#39;.&#39;,), 73388), ((&#39;of&#39;,), 56743), ((&#39;&lt;unk&gt;&#39;,), 53951), ((&#39;and&#39;,), 49940), ((&#39;in&#39;,), 44876), ((&#39;to&#39;,), 39462), ((&#39;a&#39;,), 36140), ((&#39;&#34;&#39;,), 28285)]
+bigram: [((&#39;the&#39;,), 130519), ((&#39;,&#39;,), 99763), ((&#39;.&#39;,), 73388), ((&#39;of&#39;,), 56743), ((&#39;&lt;unk&gt;&#39;,), 53951), ((&#39;and&#39;,), 49940), ((&#39;in&#39;,), 44876), ((&#39;to&#39;,), 39462), ((&#39;a&#39;,), 36140), ((&#39;&#34;&#39;,), 28285)]
+triigram: [((&#39;the&#39;,), 130519), ((&#39;,&#39;,), 99763), ((&#39;.&#39;,), 73388), ((&#39;of&#39;,), 56743), ((&#39;&lt;unk&gt;&#39;,), 53951), ((&#39;and&#39;,), 49940), ((&#39;in&#39;,), 44876), ((&#39;to&#39;,), 39462), ((&#39;a&#39;,), 36140), ((&#39;&#34;&#39;,), 28285)]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -13507,7 +13449,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################</span>
@@ -13544,7 +13486,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">START</span> <span class="o">=</span> <span class="s1">&#39;&lt;START&gt;&#39;</span>
@@ -13559,23 +13501,19 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 <span class="sd">    return:</span>
 <span class="sd">        padded_sents: list[list[str]] --- list of padded sentences.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
+    <span class="kn">import</span> <span class="nn">copy</span>
     <span class="n">padded_sents</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="c1">### YOUR CODE HERE</span>
     <span class="n">padded_sents</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;&lt;START&gt;&#39;</span>
-    <span class="n">stop</span> <span class="o">=</span> <span class="s1">&#39;&lt;STOP&gt;&#39;</span>
-    
-    <span class="n">start_ls</span><span class="p">,</span> <span class="n">stop_ls</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-    
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">start_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
-        <span class="n">stop_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
-        
-    <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sents</span><span class="p">:</span>
-        <span class="n">padded_sent</span> <span class="o">=</span> <span class="n">start_ls</span> <span class="o">+</span> <span class="n">sent</span> <span class="o">+</span> <span class="n">stop_ls</span>
-        <span class="n">padded_sents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">padded_sent</span><span class="p">)</span>
 
+    <span class="n">new_sents</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">sents</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">new_sents</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">sent</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">STOP</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">sent</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">START</span><span class="p">)</span>
+        <span class="n">padded_sents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
     <span class="c1">### END OF YOUR CODE</span>
     <span class="k">return</span> <span class="n">padded_sents</span>
 </pre></div>
@@ -13587,7 +13525,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">uni_sents</span> <span class="o">=</span> <span class="n">pad_sents</span><span class="p">(</span><span class="n">train_sents</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -13602,7 +13540,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unigram_set</span><span class="p">,</span> <span class="n">unigram_dict</span> <span class="o">=</span> <span class="n">compute_ngram</span><span class="p">(</span><span class="n">uni_sents</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -13617,7 +13555,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### (28xxx, 58xxxx, 136xxxx)</span>
@@ -13634,13 +13572,13 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(28912, 580827, 1363978)</pre>
+<pre>(28910, 580825, 1363266)</pre>
 </div>
 
 </div>
@@ -13651,7 +13589,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### ~ 200xxxx; total number of words in wikitext-2.train</span>
@@ -13673,7 +13611,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2042258
+<pre>2007146
 </pre>
 </div>
 </div>
@@ -13684,7 +13622,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ngram_prob</span><span class="p">(</span><span class="n">ngram</span><span class="p">,</span> <span class="n">num_words</span><span class="p">,</span> <span class="n">unigram_dic</span><span class="p">,</span> <span class="n">bigram_dic</span><span class="p">,</span> <span class="n">trigram_dic</span><span class="p">):</span>
@@ -13712,19 +13650,16 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
     
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ngram</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">ngram</span><span class="p">:</span>
-<span class="c1">#                 if (word,) not in unigram_dic:</span>
-<span class="c1">#                     numerator = unigram_dic[(&#39;&lt;unk&gt;&#39;,)]</span>
-<span class="c1">#                 else:</span>
                 <span class="n">numerator</span> <span class="o">=</span> <span class="n">unigram_dic</span><span class="p">[(</span><span class="n">word</span><span class="p">,)]</span>
                 <span class="n">unigram_prob</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">num_words</span>
-                <span class="n">uni_prob</span> <span class="o">*=</span> <span class="n">unigram_prob</span>
+                <span class="n">uni_prob</span> <span class="o">+=</span> <span class="n">unigram_prob</span>
             <span class="n">prob</span> <span class="o">=</span> <span class="n">uni_prob</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">ngram</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">bigram_denominator</span> <span class="o">=</span> <span class="n">unigram_dic</span><span class="p">[(</span><span class="n">ngram</span><span class="p">[</span><span class="mi">0</span><span class="p">],)]</span>
             <span class="n">bigram_numerator</span> <span class="o">=</span> <span class="n">bigram_dic</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">ngram</span><span class="p">)]</span>
             <span class="n">prob</span> <span class="o">=</span> <span class="n">bigram_numerator</span><span class="o">/</span><span class="n">bigram_denominator</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">ngram</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="n">trigram_denominator</span> <span class="o">=</span> <span class="n">bigram_dic</span><span class="p">[(</span><span class="n">ngram</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ngram</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+            <span class="n">trigram_denominator</span> <span class="o">=</span> <span class="n">bigram_dic</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">ngram</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])]</span>
             <span class="n">trigram_numerator</span> <span class="o">=</span> <span class="n">trigram_dic</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">ngram</span><span class="p">)]</span>
             <span class="n">prob</span> <span class="o">=</span> <span class="n">trigram_numerator</span><span class="o">/</span><span class="n">trigram_denominator</span>
     <span class="k">except</span><span class="p">:</span>
@@ -13742,7 +13677,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### ~9.96e-05</span>
@@ -13759,7 +13694,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -13776,7 +13711,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### List down the n-grams that have 0 probability. </span>
@@ -13825,7 +13760,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/wikitext-2/wiki.valid.tokens&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -13845,7 +13780,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">smooth_ngram_prob</span><span class="p">(</span><span class="n">ngram</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">num_words</span><span class="p">,</span> <span class="n">unigram_dic</span><span class="p">,</span> <span class="n">bigram_dic</span><span class="p">,</span> <span class="n">trigram_dic</span><span class="p">):</span>
@@ -13863,31 +13798,29 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
     <span class="n">s_prob</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">V</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unigram_dic</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> 
     <span class="c1">### YOUR CODE HERE</span>
-
     
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ngram</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">ngram</span><span class="p">:</span>
-<span class="c1">#             if (word,) not in unigram_dic:</span>
-<span class="c1">#                 numerator = unigram_dic[(&#39;&lt;unk&gt;&#39;,)]</span>
-<span class="c1">#             else:</span>
-            <span class="n">numerator</span> <span class="o">=</span> <span class="n">unigram_dic</span><span class="p">[(</span><span class="n">word</span><span class="p">,)]</span>
-            <span class="n">s_prob</span> <span class="o">=</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_words</span> <span class="o">+</span> <span class="n">V</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">numerator</span> <span class="o">=</span> <span class="n">unigram_dic</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">ngram</span><span class="p">)]</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">numerator</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">s_prob</span> <span class="o">=</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_words</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">V</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">ngram</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    
-        <span class="n">bigram_denominator</span> <span class="o">=</span> <span class="n">unigram_dic</span><span class="p">[(</span><span class="n">ngram</span><span class="p">[</span><span class="mi">0</span><span class="p">],)]</span>
         <span class="k">try</span><span class="p">:</span>
+            <span class="n">bigram_denominator</span> <span class="o">=</span> <span class="n">unigram_dic</span><span class="p">[</span><span class="nb">tuple</span><span class="p">([</span><span class="n">ngram</span><span class="p">[</span><span class="mi">0</span><span class="p">]])]</span>
             <span class="n">bigram_numerator</span> <span class="o">=</span> <span class="n">bigram_dic</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">ngram</span><span class="p">)]</span>
         <span class="k">except</span><span class="p">:</span>
+            <span class="n">bigram_denominator</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">bigram_numerator</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">s_prob</span> <span class="o">=</span> <span class="p">(</span><span class="n">bigram_numerator</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">bigram_denominator</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">V</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">ngram</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">trigram_denominator</span> <span class="o">=</span> <span class="n">bigram_dic</span><span class="p">[(</span><span class="n">ngram</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ngram</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+            <span class="n">trigram_denominator</span> <span class="o">=</span> <span class="n">bigram_dic</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">ngram</span><span class="p">[:</span><span class="mi">2</span><span class="p">])]</span>
             <span class="n">trigram_numerator</span> <span class="o">=</span> <span class="n">trigram_dic</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">ngram</span><span class="p">)]</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="n">trigram_denominator</span> <span class="o">=</span> <span class="mi">0</span> 
-            <span class="n">trigram_numerator</span> <span class="o">=</span> <span class="mi">0</span> 
+            <span class="n">trigram_numerator</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">s_prob</span> <span class="o">=</span> <span class="p">(</span><span class="n">trigram_numerator</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">trigram_denominator</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">V</span><span class="p">)</span>    
     
     <span class="c1">### END OF YOUR CODE</span>
@@ -13901,7 +13834,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### ~ 9.31e-05</span>
@@ -13918,13 +13851,13 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>9.311918220664871e-05</pre>
+<pre>9.311982452086402e-05</pre>
 </div>
 
 </div>
@@ -13935,7 +13868,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">perplexity</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">num_words</span><span class="p">,</span> <span class="n">valid_sents</span><span class="p">,</span> <span class="n">unigram_dic</span><span class="p">,</span> <span class="n">bigram_dic</span><span class="p">,</span> <span class="n">trigram_dic</span><span class="p">):</span>
@@ -13976,11 +13909,11 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### ~ 840</span>
-<span class="n">perplexity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">num_words</span><span class="p">,</span> <span class="n">uni_valid_sents</span><span class="p">,</span> <span class="n">unigram_dict</span><span class="p">,</span> <span class="n">bigram_dict</span><span class="p">,</span> <span class="n">trigram_dict</span><span class="p">)</span>
+<span class="n">perplexity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">num_words</span><span class="p">,</span> <span class="n">uni_valid_sents</span><span class="p">,</span> <span class="n">unigram_dict</span><span class="p">,</span> <span class="n">bigram_dict</span><span class="p">,</span><span class="n">trigram_dict</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13993,13 +13926,13 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>836.9592060281042</pre>
+<pre>840.7347306258201</pre>
 </div>
 
 </div>
@@ -14010,7 +13943,7 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
@@ -14038,21 +13971,21 @@ For n=1,2,3, the number of unique n-grams should be <strong>28910/577343/1344047
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>n = 1, k = 0.1, ppl = 836.9592060281042
-n = 1, k = 0.3, ppl = 834.9977532200639
-n = 1, k = 0.5, ppl = 833.0914520584979
-n = 1, k = 0.7, ppl = 831.2359545332025
-n = 1, k = 0.9, ppl = 829.4274815419767
-n = 2, k = 0.1, ppl = 783.8781349685943
-n = 2, k = 0.3, ppl = 1116.7472231327645
-n = 2, k = 0.5, ppl = 1352.731252461768
-n = 2, k = 0.7, ppl = 1547.7695868017806
-n = 2, k = 0.9, ppl = 1718.4083087461815
-n = 3, k = 0.1, ppl = 5128.537607667474
-n = 3, k = 0.3, ppl = 7272.002814119486
-n = 3, k = 0.5, ppl = 8557.354797026534
-n = 3, k = 0.7, ppl = 9503.041224722776
-n = 3, k = 0.9, ppl = 10256.287856035962
+<pre>n = 1, k = 0.1, ppl = 840.7347306258201
+n = 1, k = 0.3, ppl = 841.1427277036225
+n = 1, k = 0.5, ppl = 841.59596789613
+n = 1, k = 0.7, ppl = 842.0904494779538
+n = 1, k = 0.9, ppl = 842.622708490275
+n = 2, k = 0.1, ppl = 738.2301795862975
+n = 2, k = 0.3, ppl = 1101.4234494831217
+n = 2, k = 0.5, ppl = 1355.7789531603153
+n = 2, k = 0.7, ppl = 1564.977863322016
+n = 2, k = 0.9, ppl = 1747.4186080508514
+n = 3, k = 0.1, ppl = 5334.631048016269
+n = 3, k = 0.3, ppl = 7576.330069443273
+n = 3, k = 0.5, ppl = 8919.360996408615
+n = 3, k = 0.7, ppl = 9906.465565509076
+n = 3, k = 0.9, ppl = 10691.886608548311
 </pre>
 </div>
 </div>
@@ -14071,7 +14004,7 @@ n = 3, k = 0.9, ppl = 10256.287856035962
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/wikitext-2/wiki.test.tokens&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -14091,7 +14024,7 @@ n = 3, k = 0.9, ppl = 10256.287856035962
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### YOUR CODE HERE</span>
@@ -14109,13 +14042,13 @@ n = 3, k = 0.9, ppl = 10256.287856035962
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[26]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>653.2327035169877</pre>
+<pre>776.4679045414682</pre>
 </div>
 
 </div>
@@ -14159,7 +14092,7 @@ The word embeddings together with the parameters in the LSTM model will be learn
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torchtext</span>
@@ -14197,13 +14130,13 @@ The word embeddings together with the parameters in the LSTM model will be learn
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;torch._C.Generator at 0x17cd71e9c30&gt;</pre>
+<pre>&lt;torch._C.Generator at 0x1ac636654d0&gt;</pre>
 </div>
 
 </div>
@@ -14214,7 +14147,7 @@ The word embeddings together with the parameters in the LSTM model will be learn
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -14235,7 +14168,7 @@ The word embeddings together with the parameters in the LSTM model will be learn
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Build a vocabulary from the train dataset</span>
@@ -14268,7 +14201,7 @@ The word embeddings together with the parameters in the LSTM model will be learn
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">64</span>
@@ -14288,7 +14221,7 @@ The word embeddings together with the parameters in the LSTM model will be learn
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Generate a batch of train data</span>
@@ -14326,7 +14259,7 @@ Size of target tensor torch.Size([32, 64])
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">LangModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -14389,7 +14322,7 @@ Size of target tensor torch.Size([32, 64])
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">):</span>
@@ -14442,7 +14375,7 @@ Size of target tensor torch.Size([32, 64])
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">):</span>
@@ -14471,7 +14404,7 @@ Size of target tensor torch.Size([32, 64])
         <span class="c1">### Compute perplexity according to &quot;test_loss&quot;</span>
         <span class="c1">### Hint: Consider how the loss is computed.</span>
         <span class="c1">### YOUR CODE HERE(1 line)</span>
-        <span class="n">ppl</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span> <span class="c1"># NLLoss</span>
+        <span class="n">ppl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span> <span class="c1"># NLLoss</span>
         <span class="c1">### END OF YOUR CODE</span>
         <span class="k">return</span> <span class="n">ppl</span>
 </pre></div>
@@ -14483,7 +14416,7 @@ Size of target tensor torch.Size([32, 64])
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_epochs</span><span class="o">=</span><span class="mi">10</span>
@@ -14509,7 +14442,7 @@ Size of target tensor torch.Size([32, 64])
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span><span class="p">(</span><span class="n">LM</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">,</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">)</span>
@@ -14549,7 +14482,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># &lt; 150</span>
@@ -14566,13 +14499,13 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[38]:</div>
+    <div class="prompt output_prompt">Out[37]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>24.313683028512312</pre>
+<pre>99.85274430558748</pre>
 </div>
 
 </div>
@@ -14597,7 +14530,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">word_greedy_search</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">start_token</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
@@ -14633,7 +14566,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">word_greedy_search</span><span class="p">(</span><span class="n">LM</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
@@ -14649,7 +14582,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[40]:</div>
+    <div class="prompt output_prompt">Out[39]:</div>
 
 
 
@@ -14730,7 +14663,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># BeamNode = namedtuple(&#39;BeamNode&#39;, [&#39;prev_node&#39;, &#39;prev_hidden&#39;, &#39;wordID&#39;, &#39;score&#39;, &#39;length&#39;])</span>
@@ -14790,7 +14723,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">word_beam_search</span><span class="p">(</span><span class="n">LM</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -14806,7 +14739,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[42]:</div>
+    <div class="prompt output_prompt">Out[41]:</div>
 
 
 
@@ -14906,7 +14839,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">char_tokenizer</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
@@ -14933,7 +14866,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_str</span> <span class="o">=</span> <span class="s1">&#39;test test test&#39;</span>
@@ -14950,7 +14883,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[44]:</div>
+    <div class="prompt output_prompt">Out[43]:</div>
 
 
 
@@ -14967,7 +14900,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">CHAR_TEXT</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tokenize</span><span class="o">=</span><span class="n">char_tokenizer</span> <span class="p">,</span><span class="n">init_token</span><span class="o">=</span><span class="s1">&#39;&lt;START&gt;&#39;</span><span class="p">,</span> <span class="n">eos_token</span><span class="o">=</span><span class="s1">&#39;&lt;STOP&gt;&#39;</span><span class="p">)</span>
@@ -14981,7 +14914,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">CHAR_TEXT</span><span class="o">.</span><span class="n">build_vocab</span><span class="p">(</span><span class="n">ctrain</span><span class="p">)</span>
@@ -15013,7 +14946,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">32</span>
@@ -15033,7 +14966,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">CharLangModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -15073,7 +15006,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">char_train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">):</span>
@@ -15128,7 +15061,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">char_test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">criterion</span><span class="p">):</span>
@@ -15158,7 +15091,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
         <span class="c1">### Compute perplexity according to &quot;test_loss&quot;</span>
         <span class="c1">### Hint: Consider how the loss is computed.</span>
         <span class="c1">### YOUR CODE HERE(1 line)</span>
-        <span class="n">ppl</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span> <span class="c1"># NLLoss</span>
+        <span class="n">ppl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span> <span class="c1"># NLLoss</span>
         <span class="c1">### END OF YOUR CODE</span>
         <span class="k">return</span> <span class="n">ppl</span>
 </pre></div>
@@ -15170,7 +15103,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_epochs</span><span class="o">=</span><span class="mi">10</span>
@@ -15196,7 +15129,7 @@ Epoch: 10, Training Loss: 4.4593, Validation Loss: 4.7558
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">char_train</span><span class="p">(</span><span class="n">CLM</span><span class="p">,</span> <span class="n">ctrain_iter</span><span class="p">,</span> <span class="n">cvalid_iter</span><span class="p">,</span> <span class="n">char_criterion</span><span class="p">,</span> <span class="n">char_optimizer</span><span class="p">,</span> <span class="n">char_vocab_size</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">)</span>
@@ -15236,7 +15169,7 @@ Epoch: 10, Training Loss: 1.3526, Validation Loss: 1.3076
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># &lt;10</span>
@@ -15253,13 +15186,13 @@ Epoch: 10, Training Loss: 1.3526, Validation Loss: 1.3076
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[53]:</div>
+    <div class="prompt output_prompt">Out[52]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2.466842651869756</pre>
+<pre>3.6790909453145777</pre>
 </div>
 
 </div>
@@ -15270,7 +15203,7 @@ Epoch: 10, Training Loss: 1.3526, Validation Loss: 1.3076
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">char_greedy_search</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">start_token</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
@@ -15305,7 +15238,7 @@ Epoch: 10, Training Loss: 1.3526, Validation Loss: 1.3076
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">char_greedy_search</span><span class="p">(</span><span class="n">CLM</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
@@ -15321,7 +15254,7 @@ Epoch: 10, Training Loss: 1.3526, Validation Loss: 1.3076
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[55]:</div>
+    <div class="prompt output_prompt">Out[54]:</div>
 
 
 
